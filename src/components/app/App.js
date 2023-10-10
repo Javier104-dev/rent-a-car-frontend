@@ -4,7 +4,8 @@ import Footer from '../footer/Footer';
 import NavMenu from '../navMenu/NavMenu';
 import Reservation from '../reservation/Reservation';
 import User from '../user/User';
-import Car from '../car/Car.js';
+import Car from '../car/Car';
+import AddReservation from '../reservation/AddReservation';
 
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
       <NavMenu/>
         <Routes>
           <Route exact path='/' element={<Reservation/>}/>
+          <Route exact path='/reservation/add' element={<AddReservation/>}/>
           <Route exact path='/reservation/manage' element={<Reservation/>}/>
           <Route exact path='/user/manage' element={<User/>}/>
           <Route exact path='/car/manage' element={<Car/>}/>

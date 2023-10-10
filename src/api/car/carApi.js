@@ -8,4 +8,6 @@ const getAll = async () => {
   return car.json();
 };
 
-export default getAll;
+export {
+  getAll,
+}

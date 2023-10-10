@@ -1,4 +1,4 @@
-import getAll from '../../api/car/carApi';
+import { getAll } from '../../api/car/carApi';
 import useFetchReducer from '../../hooks/useFetch';
 
 const Car = () => {
