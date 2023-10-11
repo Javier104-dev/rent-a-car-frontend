@@ -2,17 +2,21 @@ import { useState } from 'react';
 import useFetchReducer from '../../hooks/useFetch';
 import { getAll as getAllCar } from '../../api/car/carApi';
 import { getAll as getAllUser } from '../../api/user/userApi';
+import { useNavigate } from 'react-router-dom';
+import { makeReservation } from '../../api/reservation/reservationApi';
+import { addRecord } from '../../utilities/utilities';
 
 const AddReservation = () => {
   const { data: dataCar, error: errorCar, loading: loadingCar } = useFetchReducer(getAllCar);
   const { data: dataUser, error: errorUser, loading: loadingUser } = useFetchReducer(getAllUser);
-  console.log(dataUser);
   const [dataForm, setData] = useState({
     'start-date': '',
     'finish-date': '',
     'car-id': '',
     'user-id': '',
   });
+
+  const navigate = useNavigate();
 
   const setAttributes = (e) => {
     const { name, value } = e.target;
@@ -21,15 +25,24 @@ const AddReservation = () => {
       [name] : value
     });
   };
-  const pruebna = (evento) => {
-    evento.preventDefault();
-    console.log(dataForm);
-  }
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    await addRecord(
+      makeReservation,
+      dataForm,
+      'Reserva agrega con exito',
+      navigate,
+      '/reservation/manage'
+    );
+  };
+
   return (
     <section>
       {(loadingCar && loadingUser) && <div>Cargando</div>}
       {(dataCar && dataUser) && (
-        <form onSubmit={pruebna}>
+        <form onSubmit={onSubmit}>
           <label>Fecha inicio</label>
           <input
             name='start-date'

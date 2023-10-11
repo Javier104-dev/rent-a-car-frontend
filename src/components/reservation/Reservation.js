@@ -1,7 +1,8 @@
+import { NavLink } from 'react-router-dom';
 import { getAll } from '../../api/reservation/reservationApi';
 import useFetchReducer from '../../hooks/useFetch';
 
-const Reservation = () => {
+const Reservation = ({ buttons }) => {
   const { data, error, loading } = useFetchReducer(getAll);
 
   return (
@@ -21,13 +22,19 @@ const Reservation = () => {
             </tr>
             {data.map((e) => (
               <tr key={e.id}>
-                <th>{e.id}</th>
-                <th>{e.startDate}</th>
-                <th>{e.finishDate}</th>
-                <th>{`$ ${e.pricePerDay}`}</th>
-                <th>{`$ ${e.totalPrice}`}</th>
-                <th>{`${e.Car.model} ${e.Car.brand}`}</th>
-                <th>{`${e.User.firstName} ${e.User.lastName}`}</th>
+                <td>{e.id}</td>
+                <td>{e.startDate}</td>
+                <td>{e.finishDate}</td>
+                <td>{`$ ${e.pricePerDay}`}</td>
+                <td>{`$ ${e.totalPrice}`}</td>
+                <td>{`${e.Car.model} ${e.Car.brand}`}</td>
+                <td>{`${e.User.firstName} ${e.User.lastName}`}</td>
+                {buttons && (
+                  <td className="estilos__tabla">
+                    <NavLink to={`/reservation/${e.id}/view`}>Ver</NavLink>
+                    <NavLink to={`/reservation/${e.id}/edit`}>Editar</NavLink>
+                  </td>
+                )}
               </tr>
             ))}
           </tbody>

@@ -6,6 +6,7 @@ import Reservation from '../reservation/Reservation';
 import User from '../user/User';
 import Car from '../car/Car';
 import AddReservation from '../reservation/AddReservation';
+import ViewReservation from '../reservation/ViewReservation';
 
 
 const App = () => {
@@ -14,9 +15,11 @@ const App = () => {
       <Header/>
       <NavMenu/>
         <Routes>
-          <Route exact path='/' element={<Reservation/>}/>
+          <Route exact path='/' element={<Reservation buttons={false}/>}/>
           <Route exact path='/reservation/add' element={<AddReservation/>}/>
-          <Route exact path='/reservation/manage' element={<Reservation/>}/>
+          <Route exact path='/reservation/manage' element={<Reservation buttons={true}/>}/>
+          <Route exact path='/reservation/:id/view' element={<ViewReservation/>}/>
+
           <Route exact path='/user/manage' element={<User/>}/>
           <Route exact path='/car/manage' element={<Car/>}/>
         </Routes>
