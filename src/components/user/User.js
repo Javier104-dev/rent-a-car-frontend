@@ -1,5 +1,6 @@
 import { getAll } from '../../api/user/userApi';
 import useFetchReducer from '../../hooks/useFetch';
+import { formatDate } from '../../utilities/utilities';
 
 const User = () => {
   const { data, error, loading } = useFetchReducer(getAll);
@@ -29,13 +30,13 @@ const User = () => {
                 <th>{e.address}</th>
                 <th>{e.phoneNumber}</th>
                 <th>{e.email}</th>
-                <th>{e.birthdate}</th>
+                <th>{formatDate(e.birthdate)}</th>
               </tr>
             ))}
           </tbody>
         </table>
       )}
-      {error && <div>{error}</div>}
+      {error && <div>{error.message}</div>}
     </section>
   );
 };

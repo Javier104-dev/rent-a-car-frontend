@@ -35,7 +35,7 @@ const Car = () => {
           </tbody>
         </table>
       )}
-      {error && <div>{error}</div>}
+      {error && <div>{error.message}</div>}
     </section>
   );
 };

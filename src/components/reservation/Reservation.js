@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { getAll } from '../../api/reservation/reservationApi';
 import useFetchReducer from '../../hooks/useFetch';
+import { formatDate } from '../../utilities/utilities';
 
 const Reservation = ({ buttons }) => {
   const { data, error, loading } = useFetchReducer(getAll);
@@ -23,8 +24,8 @@ const Reservation = ({ buttons }) => {
             {data.map((e) => (
               <tr key={e.id}>
                 <td>{e.id}</td>
-                <td>{e.startDate}</td>
-                <td>{e.finishDate}</td>
+                <td>{formatDate(e.startDate)}</td>
+                <td>{formatDate(e.finishDate)}</td>
                 <td>{`$ ${e.pricePerDay}`}</td>
                 <td>{`$ ${e.totalPrice}`}</td>
                 <td>{`${e.Car.model} ${e.Car.brand}`}</td>
@@ -40,7 +41,7 @@ const Reservation = ({ buttons }) => {
           </tbody>
         </table>
       )}
-      {error && <div>{error}</div>}
+      {error && <div>{error.message}</div>}
     </section>
   );
 }

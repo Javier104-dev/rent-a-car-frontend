@@ -2,10 +2,11 @@ const URL_BASE = 'http://127.0.0.1:8080';
 
 const getAll = async () => {
   const car = await fetch(`${URL_BASE}/car`);
+  const data = await car.json();
 
-  if (car.msg) throw new Error(car.msg);
+  if (data.msg) throw new Error(data.msg);
 
-  return car.json();
+  return data;
 };
 
 export {

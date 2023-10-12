@@ -7,6 +7,7 @@ import User from '../user/User';
 import Car from '../car/Car';
 import AddReservation from '../reservation/AddReservation';
 import ViewReservation from '../reservation/ViewReservation';
+import EditReservation from '../reservation/EditReservation';
 
 
 const App = () => {
@@ -19,7 +20,8 @@ const App = () => {
           <Route exact path='/reservation/add' element={<AddReservation/>}/>
           <Route exact path='/reservation/manage' element={<Reservation buttons={true}/>}/>
           <Route exact path='/reservation/:id/view' element={<ViewReservation/>}/>
-
+          <Route exact path='/reservation/:id/edit' element={<EditReservation/>}/>
+          
           <Route exact path='/user/manage' element={<User/>}/>
           <Route exact path='/car/manage' element={<Car/>}/>
         </Routes>

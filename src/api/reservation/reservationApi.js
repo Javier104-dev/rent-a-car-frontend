@@ -2,35 +2,36 @@ const URL_BASE = 'http://127.0.0.1:8080';
 
 const getAll = async () => {
   const reservation = await fetch(`${URL_BASE}/reservation`);
+  const data = await reservation.json();
 
-  if (reservation.msg) throw new Error(reservation.msg);
+  if (data.msg) throw new Error(data.msg);
 
-  return reservation.json();
+  return data;
 };
 
 const getReservation = async (id) => {
   const reservation = await fetch(`${URL_BASE}/reservation/${id}`);
+  const data = await reservation.json();
 
-  if (reservation.msg) throw new Error(reservation.msg);
+  if (data.msg) throw new Error(data.msg);
 
-  return reservation.json();
+  return data;
 };
 
-const makeReservation = async (data) => {
+const makeReservation = async (dataForm) => {
   const reservation = await fetch(`${URL_BASE}/reservation`, {
     method: 'POST',
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(data),
+    body: JSON.stringify(dataForm),
   });
+  const data = await reservation.json();
 
-  if (reservation.msg) throw new Error(reservation.msg);
+  if (data.msg) throw new Error(data.msg);
 
-  return reservation.json();
+  return data;
 };
-
-
 
 export {
   getAll,

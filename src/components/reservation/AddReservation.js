@@ -29,7 +29,7 @@ const AddReservation = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    await addRecord(
+    addRecord(
       makeReservation,
       dataForm,
       'Reserva agrega con exito',
@@ -40,7 +40,7 @@ const AddReservation = () => {
 
   return (
     <section>
-      {(loadingCar && loadingUser) && <div>Cargando</div>}
+      {(loadingCar || loadingUser) && <div>Cargando</div>}
       {(dataCar && dataUser) && (
         <form onSubmit={onSubmit}>
           <label>Fecha inicio</label>
@@ -91,12 +91,8 @@ const AddReservation = () => {
               <option
                 key={e.id}
                 value={e.id}
-              >{
-                `ID: ${e.id}
-                Usuario: ${e.firstName} ${e.lastName}
-                - ${e.email}`
-              }</option>
-            ))}            
+              >{`ID: ${e.id} Usuario: ${e.firstName} ${e.lastName} - ${e.email}`}</option>
+            ))}
           </select>
 
           <div>
@@ -105,7 +101,16 @@ const AddReservation = () => {
         </form>        
       )}
 
-      {(errorCar && errorUser) && <div>{errorCar}</div>}
+      {(errorCar && errorUser) && (
+        <>
+          <div>
+            {errorCar.message}
+          </div>
+          <div>
+            {errorUser.message}
+          </div>  
+        </>
+      )}
     </section>
   );
 };
