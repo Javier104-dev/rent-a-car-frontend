@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { getUser } from '../../api/user/userApi';
 import useFetchReducer from '../../hooks/useFetch';
-import { formatDate, formatDatetime } from '../../utilities/utilities';
+import { formatDatetime } from '../../utilities/utilities';
 
 const ViewUser = () => {
   const { id } = useParams();
@@ -47,7 +47,7 @@ const ViewUser = () => {
               </tr>
               <tr>
                 <th>Fecha de nacimiento</th>
-                <td>{formatDate(data.birthdate)}</td>
+                <td>{formatDatetime(data.birthdate, false)}</td>
               </tr>
               <tr>
                 <th>Creado</th>

@@ -11,6 +11,14 @@ const addRecord = async (fetch, data, message, navigate, url) => {
   }
 };
 
+const setAttributes = (e, setData, formData) => {
+  const { name, value } = e.target;
+  setData({
+    ...formData,
+    [name]: value
+  });
+};
+
 const formatDatetime = (date, hr) => {
   const year = { year: 'numeric', month: 'numeric', day: 'numeric'}
   const hour = { hour: 'numeric', minute: 'numeric'}
@@ -18,16 +26,15 @@ const formatDatetime = (date, hr) => {
   return new Date(date).toLocaleString(false, {...year, ...(hr && hour)});
 };
 
-const formatDatetimeToInput = (dateParam) => {
+const formatDatetimeToInput = (dateParam, hr) => {
   const date = new Date(dateParam).toLocaleString();
-  return moment(date, 'DD/MM/YYYY, HH:mm:ss').format('YYYY-MM-DDTHH:mm');
+  const formatString = hr ? 'YYYY-MM-DDTHH:mm' : 'YYYY-MM-DD';
+  return moment(date, 'DD/MM/YYYY, HH:mm:ss').format(formatString);
 };
-
-const formatDate = (dateParam) => moment(dateParam, 'YYYY/MM/DD').format('DD/MM/YYYY');
 
 export {
   addRecord,
   formatDatetime,
   formatDatetimeToInput,
-  formatDate
+  setAttributes
 }

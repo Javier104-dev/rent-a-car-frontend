@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { getAll } from '../../api/user/userApi';
 import useFetchReducer from '../../hooks/useFetch';
-import { formatDate } from '../../utilities/utilities';
+import { formatDatetime } from '../../utilities/utilities';
 
 const User = () => {
   const { data, error, loading } = useFetchReducer(getAll);
@@ -31,7 +31,7 @@ const User = () => {
                 <td>{e.address}</td>
                 <td>{e.phoneNumber}</td>
                 <td>{e.email}</td>
-                <td>{formatDate(e.birthdate)}</td>
+                <td>{formatDatetime(e.birthdate, false)}</td>
                 <td className="estilos__tabla">
                     <NavLink to={`/user/${e.id}/view`}>Ver</NavLink>
                     <NavLink to={`/user/${e.id}/edit`}>Editar</NavLink>

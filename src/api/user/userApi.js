@@ -18,13 +18,13 @@ const getUser = async (id) => {
   return data;
 };
 
-const addUser = async (dataForm) => {
+const addUser = async (formData) => {
   const user = await fetch(`${URL_BASE}/user`, {
     method: 'POST',
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(dataForm),
+    body: JSON.stringify(formData),
   });
   const data = await user.json();
 

@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { addRecord } from '../../utilities/utilities';
+import { addRecord, setAttributes } from '../../utilities/utilities';
 import { addUser } from '../../api/user/userApi';
 import { useNavigate } from 'react-router-dom';
 
 const AddUser = () => {
-  const [dataForm, setData] = useState({
+  const [formData, setData] = useState({
     'first-name': '',
     'last-name': '',
     nationality: '',
@@ -16,19 +16,11 @@ const AddUser = () => {
 
   const navigate = useNavigate();
 
-  const settAtributes = (e) => {
-    const { name, value } = e.target;
-    setData({
-      ...dataForm,
-      [name]: value
-    });
-  };
-
   const onSubmit = (e) =>{
     e.preventDefault()
     addRecord(
       addUser,
-      dataForm,
+      formData,
       'Usuario agregado con exito',
       navigate,
       '/user/manage'
@@ -41,52 +33,52 @@ const AddUser = () => {
         <label>Nombre</label>
         <input
           name='first-name'
-          onChange={settAtributes}
-          value={dataForm['first-name']}
+          onChange={(e) => setAttributes(e, setData, formData)}
+          value={formData['first-name']}
         />
 
         <label>Apellido</label>
         <input
           name='last-name'
-          onChange={settAtributes}
-          value={dataForm['last-name']}
+          onChange={(e) => setAttributes(e, setData, formData)}
+          value={formData['last-name']}
         />
 
         <label>Nacionalidad</label>
         <input
           name='nationality'
-          onChange={settAtributes}
-          value={dataForm.nationality}
+          onChange={(e) => setAttributes(e, setData, formData)}
+          value={formData.nationality}
         />
 
         <label>Direccion</label>
         <input
           name='address'
-          onChange={settAtributes}
-          value={dataForm.address}
+          onChange={(e) => setAttributes(e, setData, formData)}
+          value={formData.address}
         />
 
         <label>Numero telefonico</label>
         <input 
           type='number'
           name='phone-number'
-          onChange={settAtributes}
-          value={dataForm['phone-number']}
+          onChange={(e) => setAttributes(e, setData, formData)}
+          value={formData['phone-number']}
         />
 
         <label>Correo electronico</label>
         <input
           name='email'
-          onChange={settAtributes}
-          value={dataForm.email}
+          onChange={(e) => setAttributes(e, setData, formData)}
+          value={formData.email}
         />
 
         <label>Fecha de nacimiento</label>
         <input 
           name='birthdate'
           type='date'
-          onChange={settAtributes}
-          value={dataForm.birthdate}
+          onChange={(e) => setAttributes(e, setData, formData)}
+          value={formData.birthdate}
         />
 
         <div>

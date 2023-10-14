@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import useFetchReducer from '../../hooks/useFetch';
 import { getReservation, makeReservation } from '../../api/reservation/reservationApi';
-import { addRecord, formatDatetimeToInput } from '../../utilities/utilities';
+import { addRecord, formatDatetimeToInput, setAttributes } from '../../utilities/utilities';
 import { getAll as getAllCar } from '../../api/car/carApi';
 import { getAll as getAllUser} from '../../api/user/userApi';
 import { useEffect, useState } from 'react';
@@ -11,7 +11,7 @@ const EditReservation = () => {
   const { data: dataR, error: errorR, loading: loadingR } = useFetchReducer(getReservation, id);
   const { data: dataC, loading: loadingC } = useFetchReducer(getAllCar);
   const { data: dataU, loading: loadingU } = useFetchReducer(getAllUser);
-  const [dataForm, setData] = useState({
+  const [formData, setData] = useState({
     id: '',
     'start-date': '',
     'finish-date': '',
@@ -33,22 +33,14 @@ const EditReservation = () => {
       });
   }, [dataR]);
 
-  const setAttributes = (e) => {
-    const { name, value } = e.target;
-    setData({
-      ...dataForm,
-      [name] : value
-    });
-  };
-
   const onSubmit = (e) =>{
     e.preventDefault();
     addRecord(
       makeReservation,
-      dataForm,
+      formData,
       'Reserva editada con exito',
       navigate,
-      `/reservation/${dataForm.id}/view`
+      `/reservation/${formData.id}/view`
     );
   }
   return (
@@ -64,22 +56,22 @@ const EditReservation = () => {
             <input
               name='start-date'
               type='datetime-local'
-              onChange={setAttributes}
-              value={formatDatetimeToInput(dataForm['start-date'])}
+              onChange={(e) => setAttributes(e, setData, formData)}
+              value={formatDatetimeToInput(formData['start-date'], true)}
             />
 
             <label>Fecha fin</label>
             <input
               name='finish-date'
               type='datetime-local'
-              onChange={setAttributes}
-              value={formatDatetimeToInput(dataForm['finish-date'])}
+              onChange={(e) => setAttributes(e, setData, formData)}
+              value={formatDatetimeToInput(formData['finish-date'], true)}
             />
             <label>Auto</label>
             <select
               name='car-id'
-              onChange={setAttributes}
-              value={dataForm['car-id']}
+              onChange={(e) => setAttributes(e, setData, formData)}
+              value={formData['car-id']}
             >
               {dataC.map((e)=> (
                 <option
@@ -99,8 +91,8 @@ const EditReservation = () => {
             <label>Usuario</label>
             <select
               name='user-id'
-              onChange={setAttributes}
-              value={dataForm['user-id']}
+              onChange={(e) => setAttributes(e, setData, formData)}
+              value={formData['user-id']}
             >
               {dataU.map((e)=> (
                 <option
@@ -115,8 +107,8 @@ const EditReservation = () => {
               id='price-per-day'
               name='price-per-day'
               type='number'
-              onChange={setAttributes}
-              value={dataForm['price-per-day']}
+              onChange={(e) => setAttributes(e, setData, formData)}
+              value={formData['price-per-day']}
             />
 
             <div>

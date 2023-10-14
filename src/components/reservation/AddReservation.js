@@ -4,12 +4,12 @@ import { getAll as getAllCar } from '../../api/car/carApi';
 import { getAll as getAllUser } from '../../api/user/userApi';
 import { useNavigate } from 'react-router-dom';
 import { makeReservation } from '../../api/reservation/reservationApi';
-import { addRecord } from '../../utilities/utilities';
+import { addRecord, setAttributes } from '../../utilities/utilities';
 
 const AddReservation = () => {
   const { data: dataCar, error: errorCar, loading: loadingCar } = useFetchReducer(getAllCar);
   const { data: dataUser, error: errorUser, loading: loadingUser } = useFetchReducer(getAllUser);
-  const [dataForm, setData] = useState({
+  const [formData, setData] = useState({
     'start-date': '',
     'finish-date': '',
     'car-id': '',
@@ -18,20 +18,11 @@ const AddReservation = () => {
 
   const navigate = useNavigate();
 
-  const setAttributes = (e) => {
-    const { name, value } = e.target;
-    setData({
-      ...dataForm,
-      [name] : value
-    });
-  };
-
   const onSubmit = async (e) => {
     e.preventDefault();
-
     addRecord(
       makeReservation,
-      dataForm,
+      formData,
       'Reserva agrega con exito',
       navigate,
       '/reservation/manage'
@@ -47,21 +38,21 @@ const AddReservation = () => {
           <input
             name='start-date'
             type='datetime-local'
-            onChange={setAttributes}
+            onChange={(e) => setAttributes(e, setData, formData)}
           />
 
           <label>Fecha fin</label>
           <input
             name='finish-date'
             type='datetime-local'
-            onChange={setAttributes}
+            onChange={(e) => setAttributes(e, setData, formData)}
           />
 
           <label>Auto</label>
           <select
             name='car-id'
-            onChange={setAttributes}
-            value={dataForm['car-id']}
+            onChange={(e) => setAttributes(e, setData, formData)}
+            value={formData['car-id']}
             required
           >
             <option hidden>Seleccione un auto</option>
@@ -83,8 +74,8 @@ const AddReservation = () => {
           <label>Usuario</label>
           <select
             name='user-id'
-            onChange={setAttributes}
-            value={dataForm['user-id']}
+            onChange={(e) => setAttributes(e, setData, formData)}
+            value={formData['user-id']}
           >
             <option hidden>Seleccione un usuario</option>
             {dataUser.map((e)=> (
