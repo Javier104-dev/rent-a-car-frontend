@@ -7,24 +7,27 @@ const addRecord = async (fetch, data, message, navigate, url) => {
     navigate(url);
 
   } catch (error) {
-    window.alert(error)
+    window.alert(error.message)
   }
 };
 
-const formatDate = (date, hr) => {
-  const year = { year: '2-digit', month: '2-digit', day: '2-digit'}
+const formatDatetime = (date, hr) => {
+  const year = { year: 'numeric', month: 'numeric', day: 'numeric'}
   const hour = { hour: 'numeric', minute: 'numeric'}
 
   return new Date(date).toLocaleString(false, {...year, ...(hr && hour)});
 };
 
-const dateToInput = (dateParam) => {
-  const date = new Date(dateParam).toLocaleString(); 
+const formatDatetimeToInput = (dateParam) => {
+  const date = new Date(dateParam).toLocaleString();
   return moment(date, 'DD/MM/YYYY, HH:mm:ss').format('YYYY-MM-DDTHH:mm');
 };
 
+const formatDate = (dateParam) => moment(dateParam, 'YYYY/MM/DD').format('DD/MM/YYYY');
+
 export {
   addRecord,
-  formatDate,
-  dateToInput,
+  formatDatetime,
+  formatDatetimeToInput,
+  formatDate
 }

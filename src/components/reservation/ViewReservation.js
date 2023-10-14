@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import useFetchReducer from '../../hooks/useFetch';
 import { getReservation } from '../../api/reservation/reservationApi';
-import { formatDate } from '../../utilities/utilities';
+import { formatDatetime } from '../../utilities/utilities';
 
 const ViewReservation = () => {
   const { id } = useParams();
@@ -31,11 +31,11 @@ const ViewReservation = () => {
               </tr>
               <tr>
                 <th>Fecha de inicio</th>
-                <td>{formatDate(data.startDate, true)}</td>
+                <td>{formatDatetime(data.startDate, true)}</td>
               </tr>
               <tr>
                 <th>Fecha de finalizacion</th>
-                <td>{formatDate(data.finishDate, true)}</td>
+                <td>{formatDatetime(data.finishDate, true)}</td>
               </tr>
               <tr>
                 <th>Precio por dia</th>
@@ -47,11 +47,11 @@ const ViewReservation = () => {
               </tr>
               <tr>
                 <th>Creado</th>
-                <td>{formatDate(data.createdAt, true)}</td>
+                <td>{formatDatetime(data.createdAt, true)}</td>
               </tr>
               <tr>
                 <th>Ultima actualizacion</th>
-                <td>{formatDate(data.updatedAt, true)}</td>
+                <td>{formatDatetime(data.updatedAt, true)}</td>
               </tr>
             </tbody>
           </table>

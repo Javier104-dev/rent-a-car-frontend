@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import useFetchReducer from '../../hooks/useFetch';
 import { getReservation, makeReservation } from '../../api/reservation/reservationApi';
-import { addRecord, dateToInput } from '../../utilities/utilities';
+import { addRecord, formatDatetimeToInput } from '../../utilities/utilities';
 import { getAll as getAllCar } from '../../api/car/carApi';
 import { getAll as getAllUser} from '../../api/user/userApi';
 import { useEffect, useState } from 'react';
@@ -23,8 +23,7 @@ const EditReservation = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (dataR) {
-      setData({
+    if (dataR) setData({
         id: dataR.id,
         'start-date': dataR.startDate,
         'finish-date': dataR.finishDate,
@@ -32,7 +31,6 @@ const EditReservation = () => {
         'user-id': dataR.User.id,
         'price-per-day': dataR.pricePerDay
       });
-    }
   }, [dataR]);
 
   const setAttributes = (e) => {
@@ -67,7 +65,7 @@ const EditReservation = () => {
               name='start-date'
               type='datetime-local'
               onChange={setAttributes}
-              value={dateToInput(dataForm['start-date'])}
+              value={formatDatetimeToInput(dataForm['start-date'])}
             />
 
             <label>Fecha fin</label>
@@ -75,10 +73,9 @@ const EditReservation = () => {
               name='finish-date'
               type='datetime-local'
               onChange={setAttributes}
-              value={dateToInput(dataForm['finish-date'])}
+              value={formatDatetimeToInput(dataForm['finish-date'])}
             />
             <label>Auto</label>
-
             <select
               name='car-id'
               onChange={setAttributes}

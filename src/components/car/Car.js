@@ -22,14 +22,14 @@ const Car = () => {
             </tr>
             {data.map((e) => (
               <tr key={e.id}>
-                <th>{e.id}</th>
-                <th>{e.brand}</th>
-                <th>{e.model}</th>
-                <th>{e.year}</th>
-                <th>{e.kms}</th>
-                <th>{e.color}</th>
-                <th>{e.passengers}</th>
-                <th>{e.price}</th>
+                <td>{e.id}</td>
+                <td>{e.brand}</td>
+                <td>{e.model}</td>
+                <td>{e.year}</td>
+                <td>{e.kms}</td>
+                <td>{e.color}</td>
+                <td>{e.passengers}</td>
+                <td>{e.price}</td>
               </tr>
             ))}
           </tbody>
