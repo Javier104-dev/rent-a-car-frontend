@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import { getAll } from '../../api/car/carApi';
 import useFetchReducer from '../../hooks/useFetch';
 
@@ -15,7 +16,7 @@ const Car = () => {
               <th>Marca</th>
               <th>Modelo</th>
               <th>Año</th>
-              <th>Ksm</th>
+              <th>Kms</th>
               <th>Color</th>
               <th>Pasajeros</th>
               <th>Precio por dia</th>
@@ -30,6 +31,10 @@ const Car = () => {
                 <td>{e.color}</td>
                 <td>{e.passengers}</td>
                 <td>{e.price}</td>
+                <td>
+                  <NavLink to={`/car/${e.id}/view`}>Ver</NavLink>
+                  <NavLink to={`/car/${e.id}/edit`}>Editar</NavLink>
+                </td>
               </tr>
             ))}
           </tbody>

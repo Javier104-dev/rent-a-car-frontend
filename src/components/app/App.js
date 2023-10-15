@@ -11,6 +11,9 @@ import EditReservation from '../reservation/EditReservation';
 import ViewUser from '../user/ViewUser';
 import AddUser from '../user/AddUser';
 import EditUser from '../user/EditUser';
+import AddCar from '../car/AddCar';
+import ViewCar from '../car/ViewCar';
+import EditCar from '../car/EditCar';
 
 
 const App = () => {
@@ -32,6 +35,9 @@ const App = () => {
           <Route exact path='/user/:id/edit' element={<EditUser/>}/>
 
           <Route exact path='/car/manage' element={<Car/>}/>
+          <Route exact path='/car/add' element={<AddCar/>}/>
+          <Route exact path='/car/:id/view' element={<ViewCar/>}/>
+          <Route exact path='/car/:id/edit' element={<EditCar/>}/>
 
           <Route exact path='*' element={<div>Pagina inexistente</div>}/>
           {/* probar ruta total para quen o aparezca el footer y header */}

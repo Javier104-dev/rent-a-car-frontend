@@ -19,7 +19,8 @@ const EditUser = () => {
   });
 
   const navigate = useNavigate();
-  useEffect(()=> {
+
+  useEffect(() => {
     if (data) setData({
       id: data.id,
       'first-name': data.firstName,
