@@ -8,58 +8,60 @@ const ViewCar = () => {
   const { data, error, loading } = useFetchReducer(getCar, id);
 
   return (
-    <section>
+    <section className='section-view'>
       {loading && <div>Cargando</div>}
       {data && (
-        <>
-          <div>
-            <h1>{`Auto id: ${data.id}`}</h1>
-          </div>
-          <table>
-            <tbody>
-              <tr>
-                <th>Id de auto</th>
-                <td>{data.id}</td>
-              </tr>
-              <tr>
-                <th>Marca</th>
-                <td>{data.brand}</td>
-              </tr>
-              <tr>
-                <th>Modelo</th>
-                <td>{data.model}</td>
-              </tr>
-              <tr>
-                <th>Año</th>
-                <td>{data.year}</td>
-              </tr>
-              <tr>
-                <th>Kms</th>
-                <td>{data.kms}</td>
-              </tr>
-              <tr>
-                <th>Color</th>
-                <td>{data.color}</td>
-              </tr>
-              <tr>
-                <th>Pasajeros</th>
-                <td>{data.passengers}</td>
-              </tr>
-              <tr>
-                <th>Precio por dia</th>
-                <td>{data.price}</td>
-              </tr>
-              <tr>
-                <th>Creado</th>
-                <td>{formatDatetime(data.createdAt, true)}</td>
-              </tr>
-              <tr>
-                <th>Ultima actualizacion</th>
-                <td>{formatDatetime(data.updatedAt, true)}</td>
-              </tr>
-            </tbody>
-          </table>
-        </>
+        <table className='table-view'>
+          <thead className='table-view__header'>
+            <tr>
+              <th className='table-view__header__title' colSpan={2}>
+              {`Auto id: ${data.id}`}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th className='table-view__header__item'>Id de auto</th>
+              <td className='table-view__body__item'>{data.id}</td>
+            </tr>
+            <tr>
+              <th className='table-view__header__item'>Marca</th>
+              <td className='table-view__body__item'>{data.brand}</td>
+            </tr>
+            <tr>
+              <th className='table-view__header__item'>Modelo</th>
+              <td className='table-view__body__item'>{data.model}</td>
+            </tr>
+            <tr>
+              <th className='table-view__header__item'>Año</th>
+              <td className='table-view__body__item'>{data.year}</td>
+            </tr>
+            <tr>
+              <th className='table-view__header__item'>Kms</th>
+              <td className='table-view__body__item'>{data.kms}</td>
+            </tr>
+            <tr>
+              <th className='table-view__header__item'>Color</th>
+              <td className='table-view__body__item'>{data.color}</td>
+            </tr>
+            <tr>
+              <th className='table-view__header__item'>Pasajeros</th>
+              <td className='table-view__body__item'>{data.passengers}</td>
+            </tr>
+            <tr>
+              <th className='table-view__header__item'>Precio por dia</th>
+              <td className='table-view__body__item'>{data.price}</td>
+            </tr>
+            <tr>
+              <th className='table-view__header__item'>Creado</th>
+              <td className='table-view__body__item'>{formatDatetime(data.createdAt, true)}</td>
+            </tr>
+            <tr>
+              <th className='table-view__header__item'>Ultima actualizacion</th>
+              <td className='table-view__body__item'>{formatDatetime(data.updatedAt, true)}</td>
+            </tr>
+          </tbody>
+        </table>
       )}
       {error && <div>Cargando</div>}
     </section>

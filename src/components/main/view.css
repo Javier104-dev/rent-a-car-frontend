@@ -1,0 +1,28 @@
+.section-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+	width: 100%;
+  color: #fff;
+}
+
+.table-view {
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.table-view__header {
+  background-color: #35417a;
+  font-weight: bold;
+}
+
+.table-view__header__item {
+  text-align: right;
+  font-weight: bold;
+}
+
+.table-view__header__item, .table-view__body__item, .table-view__header__title {
+	padding: 15px;
+	background-color: rgba(255,255,255,0.2);
+}

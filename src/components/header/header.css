@@ -1,0 +1,16 @@
+.header {
+  background-color: #3c3c3c;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__tittle {
+  font-size: 3rem;
+}
+
+.header__tittle__text {
+  text-decoration:none;
+  color: white;
+}

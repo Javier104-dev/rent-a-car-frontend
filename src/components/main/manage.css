@@ -1,0 +1,31 @@
+.section-table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+	width: 100%;
+	color: #fff;
+}
+
+.table {
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.table__header {
+	text-align: left;
+  background-color: #2d3a7c;
+  font-weight: bold;
+}
+
+.table__header__item, .table__body__item {
+	padding: 15px;
+	background-color: rgba(255,255,255,0.2);
+}
+
+.table__body__item__button {
+	margin-left: 0.5rem;
+	color: #fff;
+}
+
+

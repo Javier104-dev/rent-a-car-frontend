@@ -1,0 +1,17 @@
+.nav-menu {
+  background-color: #515151;
+  font-size: 1.5rem;
+}
+
+.nav-menu__list {
+  width: 200px;
+  line-height: 2.5rem;
+}
+
+.nav-menu__list * {
+  text-decoration: none;
+}
+
+.nav-menu__list__item:hover {
+  background-color: rgb(18, 193, 199);
+}

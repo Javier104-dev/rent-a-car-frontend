@@ -8,58 +8,60 @@ const ViewUser = () => {
   const { data, error, loading } = useFetchReducer(getUser, id);
 
   return (
-    <section>
+    <section className='section-view'>
       {loading && <div>Cargando</div>}
       {data && (
-        <>
-          <div>
-            <h1>{`Usuario ${data.firstName} ${data.lastName}`}</h1>
-          </div>
-          <table>
-            <tbody>
-              <tr>
-                <th>Id de usuario</th>
-                <td>{data.id}</td>
-              </tr>
-              <tr>
-                <th>Nombre</th>
-                <td>{data.firstName}</td>
-              </tr>
-              <tr>
-                <th>Apellido</th>
-                <td>{data.lastName}</td>
-              </tr>
-              <tr>
-                <th>Nacionalidad</th>
-                <td>{data.nationality}</td>
-              </tr>
-              <tr>
-                <th>Direccion</th>
-                <td>{data.address}</td>
-              </tr>
-              <tr>
-                <th>Numero telefonico</th>
-                <td>{data.address}</td>
-              </tr>
-              <tr>
-                <th>Correo electronico</th>
-                <td>{data.email}</td>
-              </tr>
-              <tr>
-                <th>Fecha de nacimiento</th>
-                <td>{formatDatetime(data.birthdate, false)}</td>
-              </tr>
-              <tr>
-                <th>Creado</th>
-                <td>{formatDatetime(data.createdAt, true)}</td>
-              </tr>
-              <tr>
-                <th>Ultima actualizacion</th>
-                <td>{formatDatetime(data.updatedAt, true)}</td>
-              </tr>
-            </tbody>
-          </table>
-        </>
+        <table className='table-view'>
+          <thead className='table-view__header'>
+            <tr>
+              <th className='table-view__header__title' colSpan={2}>
+                {`Usuario ${data.firstName} ${data.lastName}`}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th className='table-view__header__item'>Id de usuario</th>
+              <td className='table-view__body__item'>{data.id}</td>
+            </tr>
+            <tr>
+              <th className='table-view__header__item'>Nombre</th>
+              <td className='table-view__body__item'>{data.firstName}</td>
+            </tr>
+            <tr>
+              <th className='table-view__header__item'>Apellido</th>
+              <td className='table-view__body__item'>{data.lastName}</td>
+            </tr>
+            <tr>
+              <th className='table-view__header__item'>Nacionalidad</th>
+              <td className='table-view__body__item'>{data.nationality}</td>
+            </tr>
+            <tr>
+              <th className='table-view__header__item'>Direccion</th>
+              <td className='table-view__body__item'>{data.address}</td>
+            </tr>
+            <tr>
+              <th className='table-view__header__item'>Numero telefonico</th>
+              <td className='table-view__body__item'>{data.address}</td>
+            </tr>
+            <tr>
+              <th className='table-view__header__item'>Correo electronico</th>
+              <td className='table-view__body__item'>{data.email}</td>
+            </tr>
+            <tr>
+              <th className='table-view__header__item'>Fecha de nacimiento</th>
+              <td className='table-view__body__item'>{formatDatetime(data.birthdate, false)}</td>
+            </tr>
+            <tr>
+              <th className='table-view__header__item'>Creado</th>
+              <td className='table-view__body__item'>{formatDatetime(data.createdAt, true)}</td>
+            </tr>
+            <tr>
+              <th className='table-view__header__item'>Ultima actualizacion</th>
+              <td className='table-view__body__item'>{formatDatetime(data.updatedAt, true)}</td>
+            </tr>
+          </tbody>
+        </table>
       )}
       {error && <div>{error.message}</div>}
     </section>
