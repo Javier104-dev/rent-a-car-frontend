@@ -15,7 +15,7 @@ const AddReservation = () => {
     'car-id': '',
     'user-id': '',
   });
-
+console.log(dataCar);
   const navigate = useNavigate();
 
   const onSubmit = async (e) => {
@@ -45,6 +45,7 @@ const AddReservation = () => {
               id='start-date'
               name='start-date'
               type='datetime-local'
+              required
               onChange={(e) => setAttributes(e, setData, formData)}
             />
           </div>
@@ -56,6 +57,7 @@ const AddReservation = () => {
               id='finish-date'
               name='finish-date'
               type='datetime-local'
+              required
               onChange={(e) => setAttributes(e, setData, formData)}
             />
           </div>
@@ -66,18 +68,18 @@ const AddReservation = () => {
               className='form__div__input'
               id='car-id'
               name='car-id'
+              required
               onChange={(e) => setAttributes(e, setData, formData)}
               value={formData['car-id']}
-              required
             >
-              <option hidden>Seleccione un auto</option>
+              <option value='' hidden>Seleccione un auto</option>
               {dataCar.map((e)=> (
                 <option
                   key={e.id}
                   value={e.id}
                 >{
                   `ID: ${e.id} 
-                  - Precio: ${e.price}
+                  - Precio: $ ${e.price}
                   - Marca: ${e.brand}
                   - Modelo: ${e.model}
                   - Color: ${e.color}
@@ -93,10 +95,11 @@ const AddReservation = () => {
               className='form__div__input'
               id='user-id'
               name='user-id'
+              required
               onChange={(e) => setAttributes(e, setData, formData)}
               value={formData['user-id']}
             >
-              <option hidden>Seleccione un usuario</option>
+              <option value='' hidden>Seleccione un usuario</option>
               {dataUser.map((e)=> (
                 <option
                   key={e.id}

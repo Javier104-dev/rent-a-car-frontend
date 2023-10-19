@@ -59,6 +59,7 @@ const EditReservation = () => {
               id='start-date'
               name='start-date'
               type='datetime-local'
+              required
               onChange={(e) => setAttributes(e, setData, formData)}
               value={formatDatetimeToInput(formData['start-date'], true)}
             />
@@ -71,6 +72,7 @@ const EditReservation = () => {
               id='finish-date'
               name='finish-date'
               type='datetime-local'
+              required
               onChange={(e) => setAttributes(e, setData, formData)}
               value={formatDatetimeToInput(formData['finish-date'], true)}
             />
@@ -82,6 +84,7 @@ const EditReservation = () => {
               className='form__div__input'
               id='car-id'
               name='car-id'
+              required
               onChange={(e) => setAttributes(e, setData, formData)}
               value={formData['car-id']}
             >
@@ -107,6 +110,7 @@ const EditReservation = () => {
               className='form__div__input'
               id='user-id'
               name='user-id'
+              required
               onChange={(e) => setAttributes(e, setData, formData)}
               value={formData['user-id']}
             >
@@ -126,6 +130,7 @@ const EditReservation = () => {
               id='price-per-day'
               name='price-per-day'
               type='number'
+              required
               onChange={(e) => setAttributes(e, setData, formData)}
               value={formData['price-per-day']}
             />

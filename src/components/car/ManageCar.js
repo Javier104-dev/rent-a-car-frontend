@@ -33,7 +33,7 @@ const ManageCar = () => {
                 <td className='table__body__item'>{e.kms}</td>
                 <td className='table__body__item'>{e.color}</td>
                 <td className='table__body__item'>{e.passengers}</td>
-                <td className='table__body__item'>{e.price}</td>
+                <td className='table__body__item'>{`$ ${e.price}`}</td>
                 <td className='table__body__item'>
                   <NavLink to={`/car/${e.id}/view`} className='table__body__item__button'>Ver</NavLink>
                   <NavLink to={`/car/${e.id}/edit`} className='table__body__item__button'>Editar</NavLink>

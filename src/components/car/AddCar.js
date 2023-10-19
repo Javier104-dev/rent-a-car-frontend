@@ -40,6 +40,7 @@ const AddCar = () => {
             className='form__div__input'
             id='brand'
             name='brand'
+            required
             onChange={(e) => setAttributes(e, setData, formData)}
             value={formData.brand}
           />
@@ -51,6 +52,7 @@ const AddCar = () => {
             className='form__div__input'
             id='model'
             name='model'
+            required
             onChange={(e) => setAttributes(e, setData, formData)}
             value={formData.model}
           />
@@ -63,6 +65,7 @@ const AddCar = () => {
             type='number'
             id='year'
             name='year'
+            required
             onChange={(e) => setAttributes(e, setData, formData)}
             value={formData.year}
           />
@@ -75,6 +78,7 @@ const AddCar = () => {
             type='number'
             id='kms'
             name='kms'
+            required
             onChange={(e) => setAttributes(e, setData, formData)}
             value={formData.kms}
           />
@@ -86,6 +90,7 @@ const AddCar = () => {
             className='form__div__input'
             id='color'
             name='color'
+            required
             onChange={(e) => setAttributes(e, setData, formData)}
             value={formData.color}
           />
@@ -98,6 +103,7 @@ const AddCar = () => {
             type='number'
             id='passengers'
             name='passengers'
+            required
             onChange={(e) => setAttributes(e, setData, formData)}
             value={formData.passengers}
           />
@@ -110,6 +116,7 @@ const AddCar = () => {
             type='number'
             id='price'
             name='price'
+            required
             onChange={(e) => setAttributes(e, setData, formData)}
             value={formData.price}
           />

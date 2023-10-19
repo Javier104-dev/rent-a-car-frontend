@@ -40,6 +40,7 @@ const AddUser = () => {
             className='form__div__input'
             id='first-name'
             name='first-name'
+            required
             onChange={(e) => setAttributes(e, setData, formData)}
             value={formData['first-name']}
           />
@@ -51,6 +52,7 @@ const AddUser = () => {
             className='form__div__input'
             id='last-name'
             name='last-name'
+            required
             onChange={(e) => setAttributes(e, setData, formData)}
             value={formData['last-name']}
           />
@@ -62,6 +64,7 @@ const AddUser = () => {
             className='form__div__input'
             id='nationality'
             name='nationality'
+            required
             onChange={(e) => setAttributes(e, setData, formData)}
             value={formData.nationality}
           />
@@ -73,6 +76,7 @@ const AddUser = () => {
             className='form__div__input'
             id='address'
             name='address'
+            required
             onChange={(e) => setAttributes(e, setData, formData)}
             value={formData.address}
           />
@@ -85,6 +89,7 @@ const AddUser = () => {
             type='number'
             id='phone-number'
             name='phone-number'
+            required
             onChange={(e) => setAttributes(e, setData, formData)}
             value={formData['phone-number']}
           />
@@ -96,6 +101,7 @@ const AddUser = () => {
             className='form__div__input'
             id='email'
             name='email'
+            required
             onChange={(e) => setAttributes(e, setData, formData)}
             value={formData.email}
           />
@@ -108,6 +114,7 @@ const AddUser = () => {
             type='date'
             id='birthdate'
             name='birthdate'
+            required
             onChange={(e) => setAttributes(e, setData, formData)}
             value={formData.birthdate}
           />
