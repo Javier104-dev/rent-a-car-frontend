@@ -15,7 +15,6 @@ const AddReservation = () => {
     'car-id': '',
     'user-id': '',
   });
-console.log(dataCar);
   const navigate = useNavigate();
 
   const onSubmit = async (e) => {
@@ -109,9 +108,8 @@ console.log(dataCar);
             </select>
           </div>
           <button type='submit' className='form__button'>Hacer reservacion</button>
-        </form>     
+        </form> 
       )}
-
       {(errorCar && errorUser) && (
         <>
           <div>
