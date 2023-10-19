@@ -1,17 +1,28 @@
 .nav-menu {
-  background-color: #515151;
-  font-size: 1.5rem;
+  height: 100%;
+  font-size: 1.1rem;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  transform: translateX(-50%);
+  left: 50%;
 }
 
 .nav-menu__list {
-  width: 200px;
-  line-height: 2.5rem;
+  display: flex;
 }
 
 .nav-menu__list * {
   text-decoration: none;
 }
 
+.nav-menu__list__item {
+  font-weight: bold;
+  padding: 10px;
+  white-space: nowrap;
+  color: #fff;
+}
+
 .nav-menu__list__item:hover {
-  background-color: rgb(18, 193, 199);
+  background-color: rgba(255, 255, 255, 0.055);
 }

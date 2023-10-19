@@ -1,0 +1,42 @@
+.section-add {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  width: 500px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  background-color: rgba(255,255,255,0.2);
+  margin-top: 4rem;
+}
+
+.form__title {
+  background-color: #2d3a7c;
+}
+
+.form__title__text {
+  padding: 15px;
+  background-color: rgba(255,255,255,0.2);
+}
+
+.form__div {
+  display: flex;
+}
+
+.form__div__label, .form__div__input{
+  outline: none;
+  margin: 15px;
+  width: 50%;
+}
+
+.form__button {
+  margin: 15px;
+  padding: 10px;
+}
+
+.form__button:hover {
+  cursor: pointer;
+}

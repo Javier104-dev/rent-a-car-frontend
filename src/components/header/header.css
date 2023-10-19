@@ -1,16 +1,20 @@
 .header {
-  background-color: #3c3c3c;
   height: 10%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: #2d3a7c;
+  position: relative;
 }
 
 .header__tittle {
-  font-size: 3rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  height: 100%;
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+  float: left;
 }
 
 .header__tittle__text {
   text-decoration:none;
-  color: white;
+  color: #fff;
 }

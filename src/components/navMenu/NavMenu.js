@@ -9,7 +9,7 @@ const NavMenu = () => {
           <li className='nav-menu__list__item'>Nueva reserva</li>
         </NavLink>
 
-        <NavLink to='/reservation/manage' className='nav-menu__list__item2'>
+        <NavLink to='/reservation/manage'>
           <li className='nav-menu__list__item'>Gestionar reservas</li>
         </NavLink>
 
@@ -22,7 +22,7 @@ const NavMenu = () => {
         </NavLink>
 
         <NavLink to='/car/add'>
-          <li className='nav-menu__list__item'>Agregar auto</li>
+          <li className='nav-menu__list__item'>Nuevo auto</li>
         </NavLink>
 
         <NavLink to='/car/manage'>

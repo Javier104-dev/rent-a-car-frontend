@@ -44,31 +44,43 @@ const EditReservation = () => {
     );
   }
   return (
-    <section>
+    <section className='section-add'>
       {(loadingR || loadingC || loadingU) && <div>loading</div>}
       {(dataR && dataC && dataU) && (
-        <>
-          <div>
-            <h1>{`Editar reserva de ${dataR.User.firstName} ${dataR.User.lastName}`}</h1>
+        <form onSubmit={onSubmit} className='form'>
+          <div className='form__title'>
+            <h1 className='form__title__text'>{`Editar reserva de ${dataR.User.firstName} ${dataR.User.lastName}`}</h1>
           </div>
-          <form onSubmit={onSubmit}>
-            <label>Fecha inicio</label>
+
+          <div className='form__div'>
+            <label className='form__div__label' htmlFor='start-date'>Fecha inicio</label>
             <input
+              className='form__div__input'
+              id='start-date'
               name='start-date'
               type='datetime-local'
               onChange={(e) => setAttributes(e, setData, formData)}
               value={formatDatetimeToInput(formData['start-date'], true)}
             />
+          </div>
 
-            <label>Fecha fin</label>
+          <div className='form__div'>
+            <label className='form__div__label' htmlFor='finish-date'>Fecha fin</label>
             <input
+              className='form__div__input'
+              id='finish-date'
               name='finish-date'
               type='datetime-local'
               onChange={(e) => setAttributes(e, setData, formData)}
               value={formatDatetimeToInput(formData['finish-date'], true)}
             />
-            <label>Auto</label>
+          </div>
+
+          <div className='form__div'>
+            <label className='form__div__label' htmlFor='car-id'>Auto</label>
             <select
+              className='form__div__input'
+              id='car-id'
               name='car-id'
               onChange={(e) => setAttributes(e, setData, formData)}
               value={formData['car-id']}
@@ -87,9 +99,13 @@ const EditReservation = () => {
                 }</option>
               ))}
             </select>
+          </div>
 
-            <label>Usuario</label>
+          <div className='form__div'>
+            <label className='form__div__label' htmlFor='user-id'>Usuario</label>
             <select
+              className='form__div__input'
+              id='user-id'
               name='user-id'
               onChange={(e) => setAttributes(e, setData, formData)}
               value={formData['user-id']}
@@ -101,21 +117,21 @@ const EditReservation = () => {
                 >{`ID: ${e.id} Usuario: ${e.firstName} ${e.lastName} - ${e.email}`}</option>
               ))}
             </select>
+          </div>
 
-            <label htmlFor="price-per-day">Precio por dia</label>
+          <div className='form__div'>
+            <label className='form__div__label' htmlFor="price-per-day">Precio por dia</label>
             <input
+              className='form__div__input'
               id='price-per-day'
               name='price-per-day'
               type='number'
               onChange={(e) => setAttributes(e, setData, formData)}
               value={formData['price-per-day']}
             />
-
-            <div>
-              <button type='submit'>Editar reservacion</button>
-            </div>
-          </form>
-        </>
+          </div>
+          <button type='submit' className='form__button'>Editar reservacion</button>
+        </form>
       )}
       {errorR && <div>{errorR.message}</div>}
     </section>

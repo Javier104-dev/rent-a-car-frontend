@@ -45,72 +45,96 @@ const EditCar = () => {
   }
 
   return (
-    <section>
+    <section className='section-add'>
       {loading && <div>Cargando</div>}
       {data && (
-        <>
-          <div>
-            <h1>{`Editar auto id: ${formData.id}`}</h1>
+        <form onSubmit={onSubmit} className='form'>
+          <div className='form__title'>
+            <h1 className='form__title__text'>{`Editar auto id: ${formData.id}`}</h1>
           </div>
-          <form onSubmit={onSubmit}>
-            <label>Marca</label>
+
+          <div className='form__div'>
+            <label className='form__div__label' htmlFor='brand'>Marca</label>
             <input
+              className='form__div__input'
+              id='brand'
               name='brand'
               onChange={(e) => setAttributes(e, setData, formData)}
               value={formData.brand}
             />
+          </div>
 
-            <label>Modelo</label>
+          <div className='form__div'>
+            <label className='form__div__label' htmlFor='model'>Modelo</label>
             <input
+              className='form__div__input'
+              id='model'
               name='model'
               onChange={(e) => setAttributes(e, setData, formData)}
               value={formData.model}
             />
+          </div>
 
-            <label>Año</label>
+          <div className='form__div'>
+            <label className='form__div__label' htmlFor='year'>Año</label>
             <input
+              className='form__div__input'
               type='number'
+              id='year'
               name='year'
               onChange={(e) => setAttributes(e, setData, formData)}
               value={formData.year}
             />
+          </div>
 
-            <label>Kms</label>
+          <div className='form__div'>
+            <label className='form__div__label' htmlFor='kms'>Kms</label>
             <input
+              className='form__div__input'
               type='number'
+              id='kms'
               name='kms'
               onChange={(e) => setAttributes(e, setData, formData)}
               value={formData.kms}
             />
+          </div>
 
-            <label>Color</label>
+          <div className='form__div'>
+            <label className='form__div__label' htmlFor='color'>Color</label>
             <input
+              className='form__div__input'
+              id='color'
               name='color'
               onChange={(e) => setAttributes(e, setData, formData)}
               value={formData.color}
             />
+          </div>
 
-            <label>Pasajeros</label>
+          <div className='form__div'>
+            <label className='form__div__label' htmlFor='passengers'>Pasajeros</label>
             <input
+              className='form__div__input'
               type='number'
+              id='passengers'
               name='passengers'
               onChange={(e) => setAttributes(e, setData, formData)}
               value={formData.passengers}
             />
+          </div>
 
-            <label>Precio por dia</label>
+          <div className='form__div'>
+            <label className='form__div__label' htmlFor='price'>Precio por dia</label>
             <input
+              className='form__div__input'
               type='number'
+              id='price'
               name='price'
               onChange={(e) => setAttributes(e, setData, formData)}
               value={formData.price}
             />
-
-            <div>
-              <button>Agregar auto</button>
-            </div>
-          </form>
-        </>
+          </div>
+          <button type='submit' className='form__button'>Agregar auto</button>
+        </form>
       )}
       {error && <div>Cargando</div>}
     </section>

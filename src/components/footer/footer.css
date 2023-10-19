@@ -1,7 +1,10 @@
 .footer {
-  font-size: 2rem;
+  font-size: 1.5rem;
   height: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #2d3a7c;
+  font-weight: bold;
+  color: #fff;
 }

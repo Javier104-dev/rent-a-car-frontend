@@ -28,64 +28,93 @@ const AddCar = () => {
   };
 
   return (
-    <section>
-      <form onSubmit={onSubmit}>
-        <label>Marca</label>
-        <input
-          name='brand'
-          onChange={(e) => setAttributes(e, setData, formData)}
-          value={formData.brand}
-        />
-
-        <label>Modelo</label>
-        <input
-          name='model'
-          onChange={(e) => setAttributes(e, setData, formData)}
-          value={formData.model}
-        />
-
-        <label>Año</label>
-        <input
-          type='number'
-          name='year'
-          onChange={(e) => setAttributes(e, setData, formData)}
-          value={formData.year}
-        />
-
-        <label>Kms</label>
-        <input
-          type='number'
-          name='kms'
-          onChange={(e) => setAttributes(e, setData, formData)}
-          value={formData.kms}
-        />
-
-        <label>Color</label>
-        <input
-          name='color'
-          onChange={(e) => setAttributes(e, setData, formData)}
-          value={formData.color}
-        />
-
-        <label>Pasajeros</label>
-        <input
-          type='number'
-          name='passengers'
-          onChange={(e) => setAttributes(e, setData, formData)}
-          value={formData.passengers}
-        />
-
-        <label>Precio por dia</label>
-        <input
-          type='number'
-          name='price'
-          onChange={(e) => setAttributes(e, setData, formData)}
-          value={formData.price}
-        />
-
-        <div>
-          <button>Agregar auto</button>
+    <section className='section-add'>
+      <form onSubmit={onSubmit} className='form'>
+        <div className='form__title'>
+          <h1 className='form__title__text'>Nuevo auto</h1>
         </div>
+
+        <div className='form__div'>
+          <label className='form__div__label' htmlFor='brand'>Marca</label>
+          <input
+            className='form__div__input'
+            id='brand'
+            name='brand'
+            onChange={(e) => setAttributes(e, setData, formData)}
+            value={formData.brand}
+          />
+        </div>
+
+        <div className='form__div'>
+          <label className='form__div__label' htmlFor='model'>Modelo</label>
+          <input
+            className='form__div__input'
+            id='model'
+            name='model'
+            onChange={(e) => setAttributes(e, setData, formData)}
+            value={formData.model}
+          />
+        </div>
+
+        <div className='form__div'>
+          <label className='form__div__label' htmlFor='year'>Año</label>
+          <input
+            className='form__div__input'
+            type='number'
+            id='year'
+            name='year'
+            onChange={(e) => setAttributes(e, setData, formData)}
+            value={formData.year}
+          />
+        </div>
+
+        <div className='form__div'>
+          <label className='form__div__label' htmlFor='kms'>Kms</label>
+          <input
+            className='form__div__input'
+            type='number'
+            id='kms'
+            name='kms'
+            onChange={(e) => setAttributes(e, setData, formData)}
+            value={formData.kms}
+          />
+        </div>
+
+        <div className='form__div'>
+          <label className='form__div__label' htmlFor='color'>Color</label>
+          <input
+            className='form__div__input'
+            id='color'
+            name='color'
+            onChange={(e) => setAttributes(e, setData, formData)}
+            value={formData.color}
+          />
+        </div>
+
+        <div className='form__div'>
+          <label className='form__div__label' htmlFor='passengers'>Pasajeros</label>
+          <input
+            className='form__div__input'
+            type='number'
+            id='passengers'
+            name='passengers'
+            onChange={(e) => setAttributes(e, setData, formData)}
+            value={formData.passengers}
+          />
+        </div>
+
+        <div className='form__div'>
+          <label className='form__div__label' htmlFor='price'>Precio por dia</label>
+          <input
+            className='form__div__input'
+            type='number'
+            id='price'
+            name='price'
+            onChange={(e) => setAttributes(e, setData, formData)}
+            value={formData.price}
+          />
+        </div>
+        <button className='form__button'>Agregar auto</button>
       </form>
     </section>
   );

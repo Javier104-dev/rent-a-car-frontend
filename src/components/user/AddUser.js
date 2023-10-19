@@ -28,62 +28,91 @@ const AddUser = () => {
   }
 
   return(
-    <section>
-      <form onSubmit={onSubmit}>
-        <label>Nombre</label>
-        <input
-          name='first-name'
-          onChange={(e) => setAttributes(e, setData, formData)}
-          value={formData['first-name']}
-        />
-
-        <label>Apellido</label>
-        <input
-          name='last-name'
-          onChange={(e) => setAttributes(e, setData, formData)}
-          value={formData['last-name']}
-        />
-
-        <label>Nacionalidad</label>
-        <input
-          name='nationality'
-          onChange={(e) => setAttributes(e, setData, formData)}
-          value={formData.nationality}
-        />
-
-        <label>Direccion</label>
-        <input
-          name='address'
-          onChange={(e) => setAttributes(e, setData, formData)}
-          value={formData.address}
-        />
-
-        <label>Numero telefonico</label>
-        <input 
-          type='number'
-          name='phone-number'
-          onChange={(e) => setAttributes(e, setData, formData)}
-          value={formData['phone-number']}
-        />
-
-        <label>Correo electronico</label>
-        <input
-          name='email'
-          onChange={(e) => setAttributes(e, setData, formData)}
-          value={formData.email}
-        />
-
-        <label>Fecha de nacimiento</label>
-        <input 
-          name='birthdate'
-          type='date'
-          onChange={(e) => setAttributes(e, setData, formData)}
-          value={formData.birthdate}
-        />
-
-        <div>
-          <button type='submit'>Agregar usuario</button>
+    <section className='section-add'>
+      <form onSubmit={onSubmit} className='form'>
+        <div className='form__title'>
+          <h1 className='form__title__text'>Nuevo usuario</h1>
         </div>
+
+        <div className='form__div'>
+          <label className='form__div__label' htmlFor='first-name'>Nombre</label>
+          <input
+            className='form__div__input'
+            id='first-name'
+            name='first-name'
+            onChange={(e) => setAttributes(e, setData, formData)}
+            value={formData['first-name']}
+          />
+        </div>
+
+        <div className='form__div'>
+          <label className='form__div__label' htmlFor='last-name'>Apellido</label>
+          <input
+            className='form__div__input'
+            id='last-name'
+            name='last-name'
+            onChange={(e) => setAttributes(e, setData, formData)}
+            value={formData['last-name']}
+          />
+        </div>
+
+        <div className='form__div'>
+          <label className='form__div__label' htmlFor='nationality'>Nacionalidad</label>
+          <input
+            className='form__div__input'
+            id='nationality'
+            name='nationality'
+            onChange={(e) => setAttributes(e, setData, formData)}
+            value={formData.nationality}
+          />
+        </div>
+
+        <div className='form__div'>
+          <label className='form__div__label' htmlFor='address'>Direccion</label>
+          <input
+            className='form__div__input'
+            id='address'
+            name='address'
+            onChange={(e) => setAttributes(e, setData, formData)}
+            value={formData.address}
+          />
+        </div>
+
+        <div className='form__div'>
+          <label className='form__div__label' htmlFor='phone-number'>Numero telefonico</label>
+          <input
+            className='form__div__input'
+            type='number'
+            id='phone-number'
+            name='phone-number'
+            onChange={(e) => setAttributes(e, setData, formData)}
+            value={formData['phone-number']}
+          />
+        </div>
+
+        <div className='form__div'>
+          <label className='form__div__label' htmlFor='email'>Correo electronico</label>
+          <input
+            className='form__div__input'
+            id='email'
+            name='email'
+            onChange={(e) => setAttributes(e, setData, formData)}
+            value={formData.email}
+          />
+        </div>
+
+        <div className='form__div'>
+          <label className='form__div__label' htmlFor='birthdate'>Fecha de nacimiento</label>
+          <input
+            className='form__div__input'
+            type='date'
+            id='birthdate'
+            name='birthdate'
+            onChange={(e) => setAttributes(e, setData, formData)}
+            value={formData.birthdate}
+          />
+        </div>
+        <button type='submit' className='form__button'>Agregar usuario</button>
       </form>
     </section>
   );
