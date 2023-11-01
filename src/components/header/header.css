@@ -5,13 +5,13 @@
 }
 
 .header__tittle {
+  position: absolute;
   font-size: 1.5rem;
   font-weight: bold;
-  height: 100%;
   margin-left: 1rem;
   display: flex;
   align-items: center;
-  float: left;
+  height: 100%;
 }
 
 .header__tittle__text {

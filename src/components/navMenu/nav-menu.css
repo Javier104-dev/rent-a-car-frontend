@@ -1,11 +1,9 @@
 .nav-menu {
   height: 100%;
   font-size: 1.1rem;
-  position: absolute;
   display: flex;
   align-items: center;
-  transform: translateX(-50%);
-  left: 50%;
+  justify-content: center;
 }
 
 .nav-menu__list {
