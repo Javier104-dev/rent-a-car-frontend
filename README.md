@@ -45,6 +45,7 @@ Las rutas/paginas que componen la página son:
 | http://localhost:3000/(*)/manage   | Renderiza la tabla para la gestión de los registros, tiene opciones de Ver y Editar |
 | http://localhost:3000/(*)/:id/view | Muestra toda la informacion de un registro                                       |
 | http://localhost:3000/(*)/:id/edit | Renderiza formulario para editar un registro                                     |
+
 (*) Reservation, Car o User.
 
 <h2 align='center'>Lo que encontrarás</h2>
