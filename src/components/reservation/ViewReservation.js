@@ -15,7 +15,7 @@ const ViewReservation = () => {
           <thead className='table-view__header'>
             <tr>
               <th className='table-view__header__title' colSpan={2}>
-                {`Reserva de ${data.User.firstName} ${data.User.lastName}`}
+                {`Reserva de ${data.user.firstName} ${data.user.lastName}`}
               </th>
             </tr>
           </thead>
@@ -26,11 +26,11 @@ const ViewReservation = () => {
           </tr>
           <tr>
             <th className='table-view__header__item'>Usuario</th>
-            <td className='table-view__body__item'>{`${data.User.firstName} ${data.User.lastName} (Id: ${data.User.id})`}</td>
+            <td className='table-view__body__item'>{`${data.user.firstName} ${data.user.lastName} (Id: ${data.user.id})`}</td>
           </tr>
           <tr>
             <th className='table-view__header__item'>Auto</th>
-            <td className='table-view__body__item'>{`${data.Car.model} ${data.Car.brand} (Id: ${data.Car.id})`}</td>
+            <td className='table-view__body__item'>{`${data.car.model} ${data.car.brand} (Id: ${data.car.id})`}</td>
           </tr>
           <tr>
             <th className='table-view__header__item'>Fecha de inicio</th>
