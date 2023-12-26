@@ -31,8 +31,8 @@ const ManageReservation = ({ buttons }) => {
                 <td className='table__body__item'>{formatDatetime(e.finishDate, false)}</td>
                 <td className='table__body__item'>{`$ ${e.pricePerDay}`}</td>
                 <td className='table__body__item'>{`$ ${e.totalPrice}`}</td>
-                <td className='table__body__item'>{`${e.Car.model} ${e.Car.brand}`}</td>
-                <td className='table__body__item'>{`${e.User.firstName} ${e.User.lastName}`}</td>
+                <td className='table__body__item'>{`${e.car.model} ${e.car.brand}`}</td>
+                <td className='table__body__item'>{`${e.user.firstName} ${e.user.lastName}`}</td>
                 {buttons && (
                   <td className='table__body__item'>
                     <NavLink to={`/reservation/${e.id}/view`} className='table__body__item__button'>Ver</NavLink>

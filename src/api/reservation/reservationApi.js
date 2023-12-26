@@ -29,7 +29,7 @@ const makeReservation = async (formData) => {
   const data = await reservation.json();
 
   if (data.msg) throw new Error(data.msg);
-  console.log(data);
+
   return data;
 };
 

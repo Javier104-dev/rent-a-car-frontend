@@ -27,8 +27,8 @@ const EditReservation = () => {
         id: dataR.id,
         'start-date': dataR.startDate,
         'finish-date': dataR.finishDate,
-        'car-id': dataR.Car.id,
-        'user-id': dataR.User.id,
+        'car-id': dataR.car.id,
+        'user-id': dataR.user.id,
         'price-per-day': dataR.pricePerDay
       });
   }, [dataR]);
@@ -49,7 +49,7 @@ const EditReservation = () => {
       {(dataR && dataC && dataU) && (
         <form onSubmit={onSubmit} className='form'>
           <div className='form__title'>
-            <h1 className='form__title__text'>{`Editar reserva de ${dataR.User.firstName} ${dataR.User.lastName}`}</h1>
+            <h1 className='form__title__text'>{`Editar reserva de ${dataR.user.firstName} ${dataR.user.lastName}`}</h1>
           </div>
 
           <div className='form__div'>
