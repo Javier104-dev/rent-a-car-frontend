@@ -4,7 +4,7 @@ const getAll = async () => {
   const user = await fetch(`${URL_BASE}/user`);
   const data = await user.json();
 
-  if (data.msg) throw new Error(data.msg);
+  if (data.message) throw new Error(data.message);
 
   return data;
 };
@@ -13,7 +13,7 @@ const getUser = async (id) => {
   const user = await fetch(`${URL_BASE}/user/${id}`);
   const data = await user.json();
 
-  if (data.msg) throw new Error(data.msg);
+  if (data.message) throw new Error(data.message);
 
   return data;
 };
@@ -28,7 +28,7 @@ const addUser = async (formData) => {
   });
   const data = await user.json();
 
-  if (data.msg) throw new Error(data.msg);
+  if (data.message) throw new Error(data.message);
 
   return data;
 };

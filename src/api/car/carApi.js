@@ -4,7 +4,7 @@ const getAll = async () => {
   const car = await fetch(`${URL_BASE}/car`);
   const data = await car.json();
 
-  if (data.msg) throw new Error(data.msg);
+  if (data.message) throw new Error(data.message);
 
   return data;
 };
@@ -13,7 +13,7 @@ const getCar = async (id) => {
   const car = await fetch(`${URL_BASE}/car/${id}`);
   const data = await car.json();
 
-  if (data.msg) throw new Error(data.msg);
+  if (data.message) throw new Error(data.message);
 
   return data;
 };
@@ -28,7 +28,7 @@ const addCar = async (formData) => {
   });
   const data = await car.json();
 
-  if (data.msg) throw new Error(data.msg);
+  if (data.message) throw new Error(data.message);
 
   return data;
 };
